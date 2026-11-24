@@ -11,9 +11,13 @@
 - Generated the initial 16 UI test structure and 11 Restful-Booker API tests.
 - Suggested test data isolation using unique booking fields and independent test setup.
 - Helped organize the test plan and bug report Markdown files.
+- Helped review the final test inventory against the assignment thresholds: 16 UI tests
+  and 11 API tests.
 
 ## Example: AI Was Wrong
 
 AI initially suggested using generic CSS locators such as `.btn_primary` and `networkidle`-style synchronization for parts of the test flow. Running and reviewing the application showed that Sauce Demo exposes stable `data-test` attributes and Playwright's click and assertion auto-waiting are sufficient. The implementation was corrected to use exact `data-test` selectors and web-first assertions.
 
 AI also assumed a missing Restful-Booker authorization token might return `401 Unauthorized` for `PUT` requests. The assignment notes and public API behavior indicate `403 Forbidden` for missing auth; the negative API assertion was therefore set to require `403`.
+
+The final suite was verified locally with `npm test`; all 27 tests passed before submission.
