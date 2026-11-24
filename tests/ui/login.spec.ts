@@ -47,6 +47,17 @@ test.describe('Login', () => {
     );
   });
 
+  test('empty username is rejected even when a password is supplied', async ({ page }) => {
+    const loginPage = new LoginPage(page);
+
+    await loginPage.open();
+    await loginPage.login('', 'secret_sauce');
+
+    await expect(loginPage.errorMessage).toHaveText(
+      'Epic sadface: Username is required',
+    );
+  });
+
   test('direct inventory navigation redirects to login with an access error', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/inventory.html');
 
